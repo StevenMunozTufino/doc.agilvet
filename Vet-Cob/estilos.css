@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif !important;
+  max-width: 148mm !important;
+  overflow: auto !important;
+  height: 180mm !important;
+
+
+  position: relative; /* Agregar esta línea */
+
+}
+  
+  .receta {
+    width: 100%; /* Ancho de la receta */
+    height: 100%;
+    margin: 0 0;
+    padding: 5px;
+    border: none; /* Eliminar los bordes */
+  }
+  
+  .titulo {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .logo {
+    text-align: center;
+  }
+  
+  
+  .item {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .medicamento {
+    flex-grow: 1; /* Para que ocupe el espacio restante */
+  }
+  
+  .dosis {
+    width: 80px; /* Ancho para la dosis */
+  }
+  
+  .horario {
+    width: 100px; /* Ancho para el horario */
+  }
+  
+  #logo {
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+#logo img {
+    width: 200px; /* Ajusta esto según el tamaño de tu logo */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo h1, #logo p {
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+}
+#qr-code {
+  position: absolute; /* Cambiar esta línea */
+  right: 0;
+  bottom: 0;
+  width: 25%;
+}
