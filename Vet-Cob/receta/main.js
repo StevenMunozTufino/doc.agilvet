@@ -95,9 +95,8 @@ async function generarReceta() {
 
     recetaScript.appendChild(receta);
     const oculto = document.querySelector('.oculto')
-    oculto.classList.toggle('oculto');
-    var elemento = document.getElementById("visible");
-    elemento.classList.add("visible");
+    oculto.classList.toggle('visible');
+
   } catch (error) {
     console.error("Error al realizar la solicitud:", error);
   }
