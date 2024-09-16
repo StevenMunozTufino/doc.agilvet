@@ -79,7 +79,7 @@ async function generarReceta() {
       item.className = "item";
       var medicamentoElement = document.createElement("div");
       medicamentoElement.className = "medicamento";
-      medicamentoElement.textContent = `${m.medicina} (${m.medida}, Dosis: ${m.dosis}, Periodo: ${m.periodo}, Duración: ${m.duracion})`;
+      medicamentoElement.textContent = `${m.medicina}: ${m.dosis} ${m.medida} ${m.periodo} ${m.duracion}`;
 
       item.appendChild(medicamentoElement);
       receta.appendChild(item);
