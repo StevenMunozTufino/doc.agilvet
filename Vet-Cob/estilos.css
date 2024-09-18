@@ -4,7 +4,10 @@ body {
   overflow: auto !important;
   height: 180mm !important;
 
+  display: flex;
+  flex-direction: column; /* Alinea los elementos en columna */
 
+  justify-content: center; /* Centrar horizontalmente */
   position: relative; /* Agregar esta línea */
 
 }
@@ -80,4 +83,23 @@ body {
 
 .receta {
   position: relative; /* Agregar esta línea */
+}
+
+#boton-descargar {
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 15px 30px; /* Espaciado interno */
+  text-align: center; /* Centrar texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Permitir padding y margin */
+  font-size: 16px; /* Tamaño de fuente */
+  margin: 20px auto; /* Margen superior e inferior */
+  cursor: pointer; /* Cambiar cursor a puntero */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s; /* Efecto de transición */
+}
+
+#boton-descargar:hover {
+  background-color: #45a049; /* Color de fondo al pasar el mouse */
 }
