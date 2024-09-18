@@ -78,3 +78,6 @@ body {
   display: none;
 }
 
+.receta {
+  position: relative; /* Agregar esta línea */
+}

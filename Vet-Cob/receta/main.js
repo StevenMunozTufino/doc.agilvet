@@ -4,8 +4,8 @@ function obtenerParametros() {
   var query = window.location.search.substring(1);
   var pares = query.split("&");
   for (var i = 0; i < pares.length; i++) {
-    var par = pares[i].split("=");
-    parametros[par[0]] = decodeURIComponent(par[1]); // Decodificar el valor del parámetro
+      var par = pares[i].split("=");
+      parametros[par[0]] = decodeURIComponent(par[1]);
   }
   return parametros;
 }
@@ -13,94 +13,99 @@ function obtenerParametros() {
 // Función para realizar la solicitud y procesar la respuesta JSON
 async function generarReceta() {
   var parametros = obtenerParametros();
-  
-  // Verificar que se haya recibido el parámetro id_entrada
-  if (!('id_entrada' in parametros)) {
-    console.error("Error: No se ha proporcionado el parámetro id_entrada.");
-    return;
+  if (!('id_entrada' in parametros) || !('id_mascota' in parametros)) {
+      console.error("Error: No se han proporcionado los parámetros necesarios.");
+      return;
   }
 
   var idEntrada = parametros['id_entrada'];
   var urlEntrada = `https://script.google.com/macros/s/AKfycbySjZHPoFXvRYfPjvfzvQEHxQAUFdvp76TWzY_rX6EAYovzjWRhYxwEx7_OeREBCHAD/exec?id_entrada=${idEntrada}`;
 
-  // Verificar que se haya recibido el parámetro id_mascota
-  if (!('id_mascota' in parametros)) {
-    console.error("Error: No se ha proporcionado el parámetro id_mascota.");
-    return;
-  }
-
   var idMascota = parametros['id_mascota'];
   var urlMascota = `https://script.google.com/macros/s/AKfycbwJAHZWX8GjhgNrq5A9kQdQU7DcXmsluvvuwkEAWmjSjDbIbwfKMnAmkfqaGaJplJr8/exec?id_entrada=${idMascota}`;
 
   try {
-    // Realizar la solicitud para obtener los datos médicos
-    let responseEntrada = await fetch(urlEntrada);
-    let dataEntrada = await responseEntrada.json();
+      let responseEntrada = await fetch(urlEntrada);
+      let dataEntrada = await responseEntrada.json();
 
-    if (!dataEntrada) {
-      console.error("Error: No se recibió respuesta para id_entrada.");
-      return;
-    }
+      let responseMascota = await fetch(urlMascota);
+      let dataMascota = await responseMascota.json();
 
-    // Realizar la solicitud para obtener el nombre de la mascota
-    let responseMascota = await fetch(urlMascota);
-    let dataMascota = await responseMascota.json();
+      var fechaElement = document.getElementById("fecha-receta");
+      var fecha = new Date(dataEntrada.fecha);
+      var options = { timeZone: 'America/Guayaquil', hour12: false };
+      fechaElement.textContent += fecha.toLocaleString('es-EC', options);
 
-    if (!dataMascota) {
-      console.error("Error: No se recibió respuesta para id_mascota.");
-      return;
-    }
+      var mascotaElement = document.getElementById("nombre-mascota");
+      mascotaElement.textContent += dataMascota.nombreMascota;
 
-    // Actualizar la página con los datos médicos recibidos
-    var fechaElement = document.getElementById("fecha-receta");
-    var fecha = new Date(dataEntrada.fecha);
-    var options = { timeZone: 'America/Guayaquil', hour12: false };
-    fechaElement.textContent += fecha.toLocaleString('es-EC', options);
+      var dxElement = document.getElementById("diagnostico-receta");
+      if (dataEntrada.diagnosticos.length > 0) {
+          dataEntrada.diagnosticos.forEach(d => {
+              dxElement.textContent += d.diagnostico + " ";
+          });
+      } else {
+          dxElement.textContent += "No se encontraron diagnósticos.";
+      }
 
-    var mascotaElement = document.getElementById("nombre-mascota");
-    mascotaElement.textContent += dataMascota.nombreMascota;
+      var recetaScript = document.getElementById("receta-script");
+      var receta = document.createElement("div");
+      receta.className = "receta";
+      if (dataEntrada.medicinas.length > 0) {
+          dataEntrada.medicinas.forEach(m => {
+              var item = document.createElement("div");
+              item.className = "item";
+              var medicamentoElement = document.createElement("div");
+              medicamentoElement.className = "medicamento";
+              medicamentoElement.textContent = `${m.medicina}: ${m.dosis} ${m.medida} ${m.periodo} ${m.duracion}`;
+              item.appendChild(medicamentoElement);
+              receta.appendChild(item);
+          });
+      } else {
+          var mensajeError = document.createElement("p");
+          mensajeError.textContent = "No se encontraron medicamentos.";
+          receta.appendChild(mensajeError);
+      }
 
-    var dxElement = document.getElementById("diagnostico-receta");
-    if (dataEntrada.diagnosticos.length > 0) {
-      dataEntrada.diagnosticos.forEach(d => {
-        dxElement.textContent += d.diagnostico + " ";
-      });
-    } else {
-      dxElement.textContent += "No se encontraron diagnósticos.";
-    }
-
-    var recetaScript = document.getElementById("receta-script");
-    var receta = document.createElement("div");
-    receta.className = "receta";
-    // Verificar medicamentos
-    if (dataEntrada.medicinas.length > 0) {
-      dataEntrada.medicinas.forEach(m => {
-      var item = document.createElement("div");
-      item.className = "item";
-      var medicamentoElement = document.createElement("div");
-      medicamentoElement.className = "medicamento";
-      medicamentoElement.textContent = `${m.medicina}: ${m.dosis} ${m.medida} ${m.periodo} ${m.duracion}`;
-
-      item.appendChild(medicamentoElement);
-      receta.appendChild(item);
-      });
-    } else {
-      var mensajeError = document.createElement("p");
-      mensajeError.textContent = "No se encontraron medicamentos.";
-      receta.appendChild(mensajeError);
-    }
-
-    // Mostrar la receta
-    
-
-    recetaScript.appendChild(receta);
-    const oculto = document.querySelector('.oculto')
-    oculto.classList.toggle('oculto');
+      recetaScript.appendChild(receta);
+      const oculto = document.querySelector('.oculto');
+      oculto.classList.toggle('oculto');
 
   } catch (error) {
-    console.error("Error al realizar la solicitud:", error);
+      console.error("Error al realizar la solicitud:", error);
   }
 }
 
+async function generarPDF() {
+  const { jsPDF } = window.jspdf;
+
+  // Captura el contenido completo del body
+  const contenido = document.querySelector('.receta');
+
+  // Usa html2canvas para capturar el contenido
+  html2canvas(contenido).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+
+      // Crear el PDF basado en el tamaño del canvas
+      const pdf = new jsPDF({
+          orientation: "portrait",
+          unit: "px",
+          format: [canvas.width, canvas.height], // Establece el tamaño basado en el contenido
+          putOnlyUsedFonts: true,
+          floatPrecision: 16 // Precision de los float
+      });
+
+      // Agrega la imagen al PDF
+      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+      pdf.save('receta.pdf'); // Guarda el PDF
+  }).catch(error => {
+      console.error("Error al capturar el contenido:", error);
+  });
+}
+
+
 // Llamar a la función cuando la página haya cargado
 window.onload = generarReceta;
+
+// Agrega el evento al botón
+document.getElementById("boton-descargar").addEventListener("click", generarPDF);
