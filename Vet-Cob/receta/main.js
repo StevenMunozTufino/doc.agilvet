@@ -68,8 +68,13 @@ async function generarReceta() {
       }
 
       recetaScript.appendChild(receta);
-      const oculto = document.querySelector('.oculto');
-      oculto.classList.toggle('oculto');
+      const elementosOcultos = document.querySelectorAll('.oculto');
+      elementosOcultos.forEach(elemento => {
+          elemento.classList.remove('oculto');
+      });
+      const carga = document.getElementById('carga');
+      carga.classList.add('oculto');
+
 
   } catch (error) {
       console.error("Error al realizar la solicitud:", error);

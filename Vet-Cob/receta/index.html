@@ -11,7 +11,10 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-  <div class="receta" >
+  <div id="carga" class="spinner">
+    Cargando datos...
+  </div>
+  <div class="receta oculto" >
     <div id="logo">
       <img src="../recursos/logo.svg" alt="Logo">
       <br>
@@ -34,6 +37,8 @@
     <br><br>
 
   </div>
-  <button id="boton-descargar">Descargar PDF</button>
+  <div class="oculto" style="text-align: center;">
+    <button id="boton-descargar" class="oculto">Descargar PDF</button>
+  </div>
 </body>
 </html>
