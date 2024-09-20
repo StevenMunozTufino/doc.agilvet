@@ -102,7 +102,7 @@ async function generarPDF() {
 
       // Agrega la imagen al PDF
       pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-    pdf.save(`receta_${parametros['id_entrada']}.pdf`); // Guarda el PDF
+      pdf.save('receta.pdf'); // Guarda el PDF
   }).catch(error => {
       console.error("Error al capturar el contenido:", error);
   });
