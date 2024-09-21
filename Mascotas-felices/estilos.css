@@ -74,10 +74,11 @@ body {
 }
 
 .oculto {
-  display: none;
+  display: none !important;
 }
 
 .spinner {
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100%; /* Ocupa todo el espacio disponible */
