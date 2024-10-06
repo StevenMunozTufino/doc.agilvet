@@ -19,10 +19,10 @@ async function generarReceta() {
   }
 
   var idEntrada = parametros['id_entrada'];
-  var urlEntrada = `https://script.google.com/macros/s/AKfycbySjZHPoFXvRYfPjvfzvQEHxQAUFdvp76TWzY_rX6EAYovzjWRhYxwEx7_OeREBCHAD/exec?id_entrada=${idEntrada}`;
+  var urlEntrada = `https://script.google.com/macros/s/AKfycbwkqLBm4M_gQ7vGA5buL5KZBsxkJ150I0KMLQSHz53pigS9oEjRdwg3toXKHvRQcNxY/exec?id_entrada=${idEntrada}`;
 
   var idMascota = parametros['id_mascota'];
-  var urlMascota = `https://script.google.com/macros/s/AKfycbwJAHZWX8GjhgNrq5A9kQdQU7DcXmsluvvuwkEAWmjSjDbIbwfKMnAmkfqaGaJplJr8/exec?id_entrada=${idMascota}`;
+  var urlMascota = `https://script.google.com/macros/s/AKfycbyw2kR1IOPHn-DbNLQwq-6T4AmRuXXqFmEbUYXmQGRJ2gh-BrCa--wHaxDX9ktN6nOfGQ/exec?id_entrada=${idMascota}`;
 
   try {
       let responseEntrada = await fetch(urlEntrada);
