@@ -74,7 +74,7 @@ body {
 }
 
 .oculto {
-  display: none;
+  display: none !important;
 }
 
 .spinner {
