@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receta Médica</title>
+    <link rel="stylesheet" href="../estilos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <script src="main.js" defer></script>
+</head>
+<body>
+  <div id="carga" class="spinner">
+    Cargando datos...
+  </div>
+  <div class="receta oculto" >
+    <div id="logo">
+      <img src="../recursos/logo.png" alt="Logo">
+      <br>
+    </div>
+    <p id="fecha-receta">Fecha: </p>
+    <div id="nombre-mascota">Paciente: </div>
+    <br>
+    <br>
+    <p id="diagnostico-receta">Dx: </p>
+    <br>
+    <div id="receta-script"></div>
+    <br>
+    <div id="logo">
+      <h1>Luis Cordero Crespo 9-10, Azogues</h1>
+      <p>Celular: 098 358 7954</p>
+    </div>
+    <p>Gracias por su visita</p>
+    <br><br>
+
+  </div>
+  <div class="oculto" style="text-align: center;">
+    <button id="boton-descargar" class="oculto">Descargar PDF</button>
+  </div>
+</body>
+</html>
