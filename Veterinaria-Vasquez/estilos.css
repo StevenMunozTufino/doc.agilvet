@@ -74,7 +74,7 @@ body {
 }
 
 .oculto {
-  display: none;
+  display: none !important;
 }
 
 .spinner {
@@ -85,6 +85,7 @@ body {
 }
 
 .spinner::before {
+  
   content: "";
   box-sizing: border-box;
   width: 50px;
