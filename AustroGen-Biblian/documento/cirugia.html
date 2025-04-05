@@ -61,6 +61,7 @@
         const fecha = ref(params.get("fecha") || "N/A");
         const motivo = ref(params.get("motivo") || "N/A");
         const doctor = ref(params.get("doctor") || "N/A");
+        const sexo = ref(params.get("sexo") || "N/A");
 
         return {
           NombreDueño,
@@ -72,6 +73,7 @@
           fecha,
           motivo,
           doctor,
+          sexo,
         };
       },
       template: `
@@ -88,7 +90,8 @@
            de raza 
           <strong>{{ RazaMascota }}</strong>, especie 
           <strong>{{ EspecieMascota }}</strong>, de edad 
-          <strong>{{ edad }}</strong>, en Biblián con fecha <strong>{{ fecha }}</strong>. <br><br>
+                    <strong>{{ edad }}</strong>, de sexo:<strong>{{ sexo }}</strong> , en Biblián con fecha <strong>{{ fecha }}</strong>. <br><br>
+
           Autorizo la realización de una cirugía y/o procedimiento bajo anestesia general a mi mascota en esta clínica por el siguiente motivo: <br> 
         <strong>&nbsp; * {{ motivo }}</strong> <br>
        La anestesia es un estado reversible de inconsciencia, producido por agentes anestésicos, con la pérdida de sensación de dolor en todo el cuerpo. Se suministra al paciente para realizar cirugía sin dolor. Puede ser general, conductiva, regional o local.<br><br>

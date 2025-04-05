@@ -61,6 +61,7 @@
         const fecha = ref(params.get("fecha") || "N/A");
         const motivo = ref(params.get("motivo") || "N/A");
         const doctor = ref(params.get("doctor") || "N/A");
+        const sexo = ref(params.get("sexo") || "N/A");
 
         return {
           NombreDueño,
@@ -72,6 +73,7 @@
           fecha,
           motivo,
           doctor,
+          sexo,
         };
       },
       template: `
@@ -88,7 +90,7 @@
            de raza 
           <strong>{{ RazaMascota }}</strong>, especie 
           <strong>{{ EspecieMascota }}</strong>, de edad 
-          <strong>{{ edad }}</strong>, en Biblián con fecha <strong>{{ fecha }}</strong>. <br><br>
+          <strong>{{ edad }}</strong>, de sexo:<strong>{{ sexo }}</strong> , en Biblián con fecha <strong>{{ fecha }}</strong>. <br><br>
           Solicito el hospedaje de mi mascota por el motivo de: <br> 
         <strong>&nbsp; * {{ motivo }}</strong> <br><br>
        Doy fe de conocer las condiciones de hospedaje, referente a su costo y forma de pago.
