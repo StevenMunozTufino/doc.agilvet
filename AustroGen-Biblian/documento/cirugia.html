@@ -75,39 +75,44 @@
         };
       },
       template: `
-        <v-sheet class="d-flex" height="20%" >
-          <v-sheet class="text-center ma-2 pa-2 d-flex justify-center align-center">
-            <h1>Autorización de Hospitalización</h1>
+        <v-sheet class="d-flex" height="15%" >
+          <v-sheet class="text-center  ma-2 pa-2 d-flex justify-center align-center">
+            <h2>Autorización para Cirugía y/o Procedimiento bajo anestesia general</h2>
           </v-sheet>
             <v-sheet class="w-50 ma-2 pa-2 d-flex justify-center align-center">
             <img src="https://austrogenvet.com/wp-content/uploads/2025/02/cropped-fondo-1-final-sin-resplandor.png" alt="Header Image" style="width: 100%; height: auto;">
             </v-sheet>
         </v-sheet>
-        <v-sheet class="d-flex align-center" height="50%" >
+        <v-sheet class="d-flex align-center text-justify" height="75%" >
           <p>Yo, <strong>{{ NombreDueño }}</strong>, con C.I <strong>{{CedulaDueño}}</strong> declaro ser el propietario de la mascota de nombre <strong>{{ NombreMascota }}</strong>,
            de raza 
           <strong>{{ RazaMascota }}</strong>, especie 
           <strong>{{ EspecieMascota }}</strong>, de edad 
           <strong>{{ edad }}</strong>, en Biblián con fecha <strong>{{ fecha }}</strong>. <br><br>
-          Autorizo la hospitalización y tratamiento de mi mascota en el hospital de esta clínica por el motivo: <br> 
-        <strong>&nbsp; * {{ motivo }}</strong> <br><br>
-       Doy fe de conocer las condiciones de hospitalización referentes a su costo y forma de pago.
-       <br>
- Me comprometo en este mismo acto a requerir información diariamente con el médico veterinario tratante, referente a la situación del paciente. Retiraré a mi mascota en un lapso no mayor a 24 horas después de dada el alta médica.
-<br><br>
-       Las altas médicas se realizan en horarios de 10:00 a 19:00.
-En caso de fallecimiento del paciente, autorizo: <strong> Sí ☐  No ☐ </strong>, la realización de la necropsia y la eliminación del cadáver.
-<br><br>
-En este mismo acto, declaro que no tomaré acciones legales en contra de la institución ni de sus personas.
+          Autorizo la realización de una cirugía y/o procedimiento bajo anestesia general a mi mascota en esta clínica por el siguiente motivo: <br> 
+        <strong>&nbsp; * {{ motivo }}</strong> <br>
+       La anestesia es un estado reversible de inconsciencia, producido por agentes anestésicos, con la pérdida de sensación de dolor en todo el cuerpo. Se suministra al paciente para realizar cirugía sin dolor. Puede ser general, conductiva, regional o local.<br><br>
+
+<b>Riesgos de la anestesia general</b><br>
+
+Para producir anestesia general, se utilizan drogas por vía intravenosa, intramuscular o inhalada, que pueden causar en algunos pacientes alergias o reacciones como: disminución de la presión arterial, de la oxigenación y, ocasionalmente, la muerte.<br>
+
+Para proveer una adecuada oxigenación y suministrar gases anestésicos, se coloca un tubo desde la boca hasta los pulmones. Su introducción podría ocasionar pérdida o fractura de piezas dentales, heridas en labios o lengua, y ronquera.<br><br>
+
+Si se ha ingerido alimento en las seis a doce horas previas (dependiendo del peso del animal), puede haber vómito y este pasar a los pulmones, presentándose complicaciones que podrían llevar a la muerte.<br><br>
+
+En algunos casos, por medidas de seguridad para el paciente, se puede requerir una cirugía o técnica anestésica diferente a la programada, transfusión de sangre y/o ser transferido a una hospitalización para recibir cuidados intensivos.<br><br>
+
+Para tratar de disminuir estos riesgos, se realiza una evaluación preanestésica y se mantiene un monitoreo constante de la oxigenación, ritmo cardíaco y temperatura durante todo el acto anestésico.
         </p> 
           
         </v-sheet>
-        <v-sheet class="d-flex justify-center align-center" height="20%" >
+        <v-sheet class="d-flex justify-center align-center" height="5%" >
 
         <p class="border-t-sm"><strong>Firma del Propietario:</strong></p>
 
         </v-sheet>
-            <v-sheet class="font-italic d-flex align-end text-caption" height="10%" >
+            <v-sheet class="font-italic d-flex align-end text-caption" height="5%" >
         <p>  <strong> Dirección: </strong> <br>
              <strong>Principal: </strong>Av. Alberto Ochoa y Carlos G. Moreno (Biblián) <strong> Teléfono: </strong> 0998360974 - 2232934 <br>
              <strong>Secundaria: </strong>Av. Ordoñez Lazo-Sayausí (Cuenca) Veterinaria Mejía <strong> Teléfono: </strong> 0987367668 - 402030 <br>
