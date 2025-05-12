@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receta Médica</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="main.js"></script>
+</head>
+<body>
+  <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+    <div style="flex-shrink:0; text-align:left;">
+      <img src="recursos/logo.png" alt="Logo" style="width: 220px; margin-right: 20px;">
+    </div>
+    <div style="flex:1; text-align:right; font-size:1em; padding-top:10px;">
+      <span style="font-size:1.2em; color:#7a4a1b;">Centro Veterinario</span>
+      <br>
+      <span style="vertical-align:middle;">&#x1F4CD;</span>
+      9 de Octubre 9-55 entre Gran Colombia y Manuel Reyes<br>
+      <span style="vertical-align:middle;">&#x1F4F1;</span>
+      0987538302 / 0993472085<br>
+      <span style="vertical-align:middle;">&#x2709;&#xFE0F;</span>
+      danivet.2708@gmail.com<br>
+      <span style="color:#d46a2b; font-weight:bold;">Gualaceo - Azuay</span>
+    </div>
+  </div>
+  <hr style="border:1px solid #d46a2b; margin:16px 0;">
+  <div style="font-weight:bold; font-size:1.1em;">
+    Nombre del Paciente: <span id="nombre-mascota"></span>
+  </div>
+  <div style="font-weight:bold; font-size:1.1em;">
+    Fecha: <span id="fecha-receta"></span>
+  </div>
+  <hr style="border:2px solid #d46a2b; margin:16px 0;">
+  <div style="font-style:italic; margin-bottom:8px;">R.P.</div>
+  <div id="diagnostico-receta"></div>
+  <div style="font-weight:bold; margin-top:10px;">Prescripción:</div>
+  <div id="receta"></div>
+  <div id="receta-script"></div>
+  <br><br><br>
+  <hr style="border:1px solid #d46a2b; margin:16px 0;">
+  <div style="text-align:right; font-size:1em; color:#444;">
+    <span style="font-style:italic;">Gracias por su visita</span>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif !important;
+  max-width: 210mm !important; /* A5 width */
+  width: 148mm !important;     /* A5 height as width for portrait */
+  height: 210mm !important;    /* A5 height */
+  overflow: auto !important;
+  margin: 0 auto !important;
+  background: #fff;
+
+  display: flex;
+  flex-direction: column; /* Alinea los elementos en columna */
+  justify-content: flex-start; /* Cambiar a flex-start */
+  position: relative; /* Agregar esta línea */
+}
+  
+  .receta {
+    width: 100%; /* Ancho de la receta */
+    height: 100%;
+    margin: 0 0;
+    padding: 5px;
+    border: none; /* Eliminar los bordes */
+  }
+  
+  .titulo {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .logo {
+    text-align: center;
+  }
+  
+  
+  .item {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .medicamento {
+    flex-grow: 1; /* Para que ocupe el espacio restante */
+  }
+  
+  .dosis {
+    width: 80px; /* Ancho para la dosis */
+  }
+  
+  .horario {
+    width: 100px; /* Ancho para el horario */
+  }
+  
+  #logo {
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+#logo img {
+    width: 180px; /* Ajusta esto según el tamaño de tu logo */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo h1, #logo p {
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+}
+#qr-code {
+  position: absolute; /* Cambiar esta línea */
+  right: 0;
+  bottom: 0;
+  width: 25%;
+}
+
+.oculto {
+  display: none;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ocupa todo el espacio disponible */
+}
+
+.spinner::before {
+  content: "";
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.visible {
+  display: none;
+}
+
+.receta {
+  position: relative; /* Agregar esta línea */
+}
+
+#boton-descargar {
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 15px 30px; /* Espaciado interno */
+  text-align: center; /* Centrar texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Permitir padding y margin */
+  font-size: 16px; /* Tamaño de fuente */
+  margin: 20px auto; /* Margen superior e inferior */
+  cursor: pointer; /* Cambiar cursor a puntero */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s; /* Efecto de transición */
+}
+
+#boton-descargar:hover {
+  background-color: #45a049; /* Color de fondo al pasar el mouse */
+}
+
+@media print {
+  body {
+    width: 148mm !important;
+    height: 210mm !important;
+    max-width: 148mm !important;
+    max-height: 210mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+}
