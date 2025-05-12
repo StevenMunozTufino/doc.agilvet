@@ -7,35 +7,48 @@
     <link rel="stylesheet" href="../estilos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    
     <script src="main.js" defer></script>
 </head>
 <body>
   <div id="carga" class="spinner">
     Cargando datos...
   </div>
-  <div class="receta oculto" >
-    <div id="logo">
-      <img src="../recursos/logo.png" alt="Logo">
-      <br>
-      <p>REG.SEN: 1029-2023-2708272</p>
+  <div class="receta oculto">
+    <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+      <div style="flex-shrink:0; text-align:left;">
+        <img src="../recursos/logo.png" alt="Logo" style="width: 220px; margin-right: 20px;">
+      </div>
+      <div style="flex:1; text-align:right; font-size:1em; padding-top:10px;">
+        <span style="font-size:1.2em; color:#7a4a1b;">Centro Veterinario</span>
+        <br>
+        <span style="vertical-align:middle;">&#x1F4CD;</span>
+        9 de Octubre 9-55 entre Gran Colombia y Manuel Reyes<br>
+        <span style="vertical-align:middle;">&#x1F4F1;</span>
+        0987538302 / 0993472085<br>
+        <span style="vertical-align:middle;">&#x2709;&#xFE0F;</span>
+        danivet.2708@gmail.com<br>
+        <span style="color:#d46a2b; font-weight:bold;">Gualaceo - Azuay</span>
+      </div>
     </div>
-    <p id="fecha-receta">Fecha: </p>
-    <div id="nombre-mascota">Paciente: </div>
-    <br>
-    <div>Médico: Edisson Cobos</div>
-    <br>
-    <p id="diagnostico-receta">Dx: </p>
-    <br>
+    <hr style="border:1px solid #d46a2b; margin:16px 0;">
+    <div style="font-weight:bold; font-size:1.1em;">
+      Nombre del Paciente: <span id="nombre-mascota"></span>
+    </div>
+    <div style="font-weight:bold; font-size:1.1em;">
+      Fecha: <span id="fecha-receta"></span>
+    </div>
+    <hr style="border:2px solid #d46a2b; margin:16px 0;">
+    <div style="font-style:italic; margin-bottom:8px;">R.P.</div>
+    <div id="diagnostico-receta"></div>
+    <div style="font-weight:bold; margin-top:10px;">Prescripción:</div>
+    <div id="receta"></div>
     <div id="receta-script"></div>
-    <br>
-    <div id="logo">
-      <h1>Jacinto Jijón y Caamaño 1-20 y Av. González Suárez</h1>
-      <p>Celular: 098085550</p>
+    <br><br><br>
+    <hr style="border:1px solid #d46a2b; margin:16px 0;">
+    <div style="text-align:right; font-size:1em; color:#444;">
+      <span style="font-style:italic;">Gracias por su visita</span>
     </div>
-    <p>Gracias por su visita</p>
     <br><br>
-
   </div>
   <div class="oculto" style="text-align: center;">
     <button id="boton-descargar" class="oculto">Descargar PDF</button>
