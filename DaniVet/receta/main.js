@@ -83,31 +83,30 @@ async function generarReceta() {
 
 async function generarPDF() {
   const { jsPDF } = window.jspdf;
-
-  // Captura el contenido completo del body
   const contenido = document.querySelector('.receta');
 
-  // Usa html2canvas para capturar el contenido
-  html2canvas(contenido).then(canvas => {
-      const imgData = canvas.toDataURL('image/png');
+  // Tamaño A5 en puntos (1 mm = 2.83465 pt)
+  const a5Width = 148 * 2.83465;
+  const a5Height = 210 * 2.83465;
 
-      // Crear el PDF basado en el tamaño del canvas
+  html2canvas(contenido, { scale: 2 }).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF({
           orientation: "portrait",
-          unit: "px",
-          format: [canvas.width, canvas.height], // Establece el tamaño basado en el contenido
-          putOnlyUsedFonts: true,
-          floatPrecision: 16 // Precision de los float
+          unit: "pt",
+          format: [a5Width, a5Height]
       });
 
-      // Agrega la imagen al PDF
-      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-      pdf.save('receta.pdf'); // Guarda el PDF
+      // Calcula el tamaño de la imagen para que encaje en A5
+      const imgWidth = a5Width;
+      const imgHeight = canvas.height * (a5Width / canvas.width);
+
+      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+      pdf.save('receta.pdf');
   }).catch(error => {
       console.error("Error al capturar el contenido:", error);
   });
 }
-
 
 // Llamar a la función cuando la página haya cargado
 window.onload = generarReceta;
