@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=210mm, initial-scale=1.0">
+    <title>Receta Médica</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="receta">
+    <div id="logo">
+      <img src="recursos/logo.jpg" alt="Logo">
+      <h1>CLÍNICA VETERINARIA MEJÍA</h1>
+      <div class="subcabecera">
+        BIOTECNOLOGÍA Y SERVICIOS VETERINARIOS<br>
+        Av. Ordoñez Lasso - Sayausi Centro , Cuenca, Ecuador,<br>
+        Teléfono: (07) 402-0030, 0987367668
+      </div>
+    </div>
+    <hr>
+    <div class="titulo">RECETA Y RECOMENDACIONES</div>
+    <table class="tabla-datos">
+      <tr>
+        <td><strong>Propietario:</strong></td>
+        <td>{{propietario}}</td>
+      </tr>
+      <tr>
+        <td><strong>Teléfono:</strong></td>
+        <td>{{telefono_cliente}}</td>
+      </tr>
+      <tr>
+        <td><strong>Paciente:</strong></td>
+        <td>{{paciente}}</td>
+      </tr>
+      <tr>
+        <td><strong>Edad:</strong></td>
+        <td>{{edad}}</td>
+      </tr>
+      <tr>
+        <td><strong>Especie:</strong></td>
+        <td>{{especie}}</td>
+      </tr>
+      <tr>
+        <td><strong>Fecha:</strong></td>
+        <td>{{fecha}}</td>
+      </tr>
+    </table>
+    <div>
+      <strong>DIAGNÓSTICO:</strong> {{diagnostico}}
+    </div>
+
+    <br>
+    <div>
+      <strong>Tratamiento</strong>
+      <ol>
+        {{#each tratamientos}}
+        <li>
+          <strong>{{nombre}}</strong>
+          <ul>
+            <li>Dosis: {{dosis}}</li>
+            <li>Vía: {{via}}</li>
+            <li>Duración: {{duracion}}</li>
+            <li>Indicaciones: {{indicaciones}}</li>
+          </ul>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+    <div>
+      <strong>Cuidados en casa</strong>
+      <ul>
+        {{#each cuidados}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div>
+      <strong>Cita de seguimiento:</strong>
+      <span>{{seguimiento}}</span>
+    </div>
+    <br>
+    <img id="qr-code" src="recursos/qr.png" alt="Código QR">
+    <br>
+    <p>Gracias por su visita</p>
+    <div class="firma-medico">
+      <div class="linea-firma"></div>
+      <div class="nombre-firma">Nombre y Firma del Médico</div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

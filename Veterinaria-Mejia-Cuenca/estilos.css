@@ -1,0 +1,152 @@
+body {
+  font-family: Arial, sans-serif !important;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  width: 210mm;
+  min-height: 297mm;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.receta {
+  width: 180mm;
+  min-height: 270mm;
+  margin: 15mm auto;
+  padding: 20px 30px 40px 30px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 4px #eee;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#logo {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#logo img {
+  width: 380px;
+  margin-bottom: 5px;
+}
+
+#logo h1 {
+  font-size: 1.1em;
+  margin: 0;
+  font-weight: bold;
+}
+
+#logo p {
+  margin: 0;
+  font-size: 0.95em;
+}
+
+#logo .subcabecera {
+  font-size: 1em;
+  text-align: center;
+  margin: 8px 0 0 0;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #0074b6;
+  margin: 10px 0 15px 0;
+}
+
+ol, ul {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-left: 22px;
+  font-size: 1em;
+}
+
+ol li {
+  margin-bottom: 5px;
+}
+
+ul li {
+  margin-bottom: 3px;
+}
+
+#qr-code {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  width: 80px;
+  height: 80px;
+}
+
+.tabla-datos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 12px;
+  font-size: 1em;
+}
+.tabla-datos td {
+  padding: 3px 8px;
+  border: none;
+  vertical-align: top;
+}
+
+.firma-medico {
+  width: 60%;
+  margin: 60px auto 0 auto;
+  text-align: center;
+}
+.linea-firma {
+  border-bottom: 1.5px solid #333;
+  width: 100%;
+  height: 32px;
+  margin-bottom: 4px;
+}
+.nombre-firma {
+  font-size: 1em;
+  color: #333;
+  margin-top: 0;
+}
+
+@media print {
+  body, .receta {
+    box-shadow: none !important;
+    border: none !important;
+    background: #fff !important;
+  }
+  .receta::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 175px; /* 350px / 2 */
+    height: 175px; /* 350px / 2 */
+    transform: translate(-50%, -50%);
+    background: url('recursos/logo.jpg') no-repeat center center;
+    background-size: 175px 175px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .receta {
+    position: relative;
+    background: #fff !important;
+  }
+  #logo img {
+    width: 190px !important; /* 380px / 2 */
+  }
+  #qr-code {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+  }
+}
