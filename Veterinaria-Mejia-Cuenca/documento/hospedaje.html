@@ -54,6 +54,7 @@
 
         const NombreDueño = ref(params.get("NombreDueño") || "N/A");
         const CedulaDueño = ref(params.get("CedulaDueño") || "N/A");
+        const TelefonoDueño = ref(params.get("TelefonoDueño") || "N/A");
         const NombreMascota = ref(params.get("NombreMascota") || "N/A");
         const RazaMascota = ref(params.get("RazaMascota") || "N/A");
         const EspecieMascota = ref(params.get("EspecieMascota") || "N/A");
@@ -66,6 +67,7 @@
         return {
           NombreDueño,
           CedulaDueño,
+          TelefonoDueño,
           NombreMascota,
           RazaMascota,
           EspecieMascota,
@@ -86,7 +88,7 @@
             </v-sheet>
         </v-sheet>
         <v-sheet class="d-flex align-center text-justify" height="50%" >
-          <p>Yo, <strong>{{ NombreDueño }}</strong>, con C.I <strong>{{CedulaDueño}}</strong> declaro ser el propietario de la mascota de nombre <strong>{{ NombreMascota }}</strong>,
+          <p>Yo, <strong>{{ NombreDueño }}</strong>, con C.I <strong>{{CedulaDueño}}</strong>, teléfono: <strong>{{TelefonoDueño}}</strong> declaro ser el propietario de la mascota de nombre <strong>{{ NombreMascota }}</strong>,
            de raza 
           <strong>{{ RazaMascota }}</strong>, especie 
           <strong>{{ EspecieMascota }}</strong>, de edad 
@@ -97,19 +99,20 @@
        <br> Me comprometo, en este mismo acto, a requerir información diariamente con el médico veterinario referente a la situación del hospedado.
 <br><br>
 En este mismo acto, declaro que no tomaré acciones legales en contra de la institución ni de sus personas.
-        </p> 
-          
+          </p> 
         </v-sheet>
         <v-sheet class="d-flex justify-center align-center" height="20%" >
-
-        <p class="border-t-sm"><strong>Firma del Propietario:</strong></p>
-
+          <div>
+            <p class="border-t-sm"><strong>Propietario:</strong> {{ NombreDueño }}</p>
+            <p><strong>C.I.:</strong> {{ CedulaDueño }}</p>
+            <p><strong>Teléfono:</strong> {{ TelefonoDueño }}</p>
+          </div>
         </v-sheet>
             <v-sheet class="font-italic d-flex align-end text-caption" height="10%" >
-        <p>  <strong> Dirección: </strong> <br>
-             Av. Ordoñez Lasso - Sayausi Centro , Cuenca, Ecuador,
+        <p>
+          <strong>Dirección:</strong>
+          AV. Ordoñez Lasso (Sayausi Centro), Cuenca, Ecuador. Teléfono: 402030 - Celular: 0987367668  <br> E-mail: veterinariamejia@hotmail.com
         </p>
-          
         </v-sheet>
       `,
     };

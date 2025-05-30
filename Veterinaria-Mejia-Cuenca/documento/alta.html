@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vue with Vuetify</title>
+  <title>Alta Voluntaria</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@3.0.0/dist/vuetify.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css" />
   <link rel="stylesheet" href="https://fonts.bunny.net/css?family=roboto:400,500,700" />
@@ -81,36 +81,42 @@
       template: `
         <v-sheet class="d-flex" height="20%" >
           <v-sheet class="text-center ma-2 pa-2 d-flex justify-center align-center">
-            <h1>Autorización de Eutanasia</h1>
+            <h1>Alta Voluntaria</h1>
           </v-sheet>
-            <v-sheet class="w-50 ma-2 pa-2 d-flex justify-center align-center">
+          <v-sheet class="w-50 ma-2 pa-2 d-flex justify-center align-center">
             <img src="../recursos/logo.jpg" alt="Logo Veterinaria Mejía" style="width: 100%; height: auto;">
-            </v-sheet>
+          </v-sheet>
         </v-sheet>
         <v-sheet class="d-flex align-center text-justify" height="50%" >
-          <p>Yo, <strong>{{ NombreDueño }}</strong>, con C.I <strong>{{CedulaDueño}}</strong>, teléfono: <strong>{{TelefonoDueño}}</strong> declaro ser el propietario de la mascota de nombre <strong>{{ NombreMascota }}</strong>,
-           de raza 
-          <strong>{{ RazaMascota }}</strong>, especie 
-          <strong>{{ EspecieMascota }}</strong>, de edad 
-          <strong>{{ edad }}</strong>, <strong>{{ sexo }}</strong> , en Cuenca con fecha <strong>{{ fecha }}</strong>. <br><br>
-          Vengo a solicitar la EUTANASIA, por mi propia voluntad, por la siguiente razón: <br> 
-        <strong>&nbsp; * {{ motivo }}</strong> <br><br>
-        Y AUTORIZO al Dr. <strong>{{ doctor }}</strong>, Médico Veterinario de Clínica Veterinaria <strong>VETERINARIA MEJÍA. </strong>  <br><br>
-        Dicho propietario acepta esta práctica y declara que el Médico Veterinario me ha explicado de forma clara la forma en que se realiza este procedimiento y, asimismo, lo <strong> LIBERO DE TODA RESPONSABILIDAD EN LA DECISIÓN POR MI TOMADA</strong>. <br><br>  
-        </p> 
+          <p>
+            <strong>Conste por medio de la presente</strong>, que la mascota:
+            <strong>Nombre:</strong> {{ NombreMascota }},
+            <strong>Especie:</strong> {{ EspecieMascota }},
+            <strong>Sexo:</strong> {{ sexo }},
+            <strong>Edad:</strong> {{ edad }},
+            de propiedad de Sr.(a) <strong>{{ NombreDueño }}</strong> con número de cédula: <strong>{{ CedulaDueño }}</strong>, teléfono: <strong>{{ TelefonoDueño }}</strong>.
+            Ha sido diagnosticada con: <strong>{{ motivo }}</strong>.
+            Motivo por el cual requiere internamiento y monitoreo constante, a pesar de haber recibido dicha información y en contra de las recomendaciones médicas, el propietario que firma al final del documento, ha decidido retirar a la mascota de este establecimiento, asumiendo plenamente las responsabilidades y consecuencias que dicho acto podría causar en la mascota, deslindando a la Clínica Veterinaria Mejía de cualquier responsabilidad.
+          </p>
         </v-sheet>
-        <v-sheet class="d-flex justify-center align-center" height="20%" >
+        <v-sheet class="d-flex justify-space-between align-center" height="20%" >
           <div>
             <p class="border-t-sm"><strong>Propietario:</strong> {{ NombreDueño }}</p>
             <p><strong>C.I.:</strong> {{ CedulaDueño }}</p>
             <p><strong>Teléfono:</strong> {{ TelefonoDueño }}</p>
           </div>
+          <!--
+          <div>
+            <p class="border-t-sm"><strong>Médico Veterinario Tratante:</strong> {{ doctor }}</p>
+            <p><strong>C.I.:</strong></p>
+          </div>
+          -->
         </v-sheet>
-            <v-sheet class="font-italic d-flex align-end text-caption" height="10%" >
-        <p>
-          <strong>Dirección:</strong>
-          AV. Ordoñez Lasso (Sayausi Centro), Cuenca, Ecuador. Teléfono: 402030 - Celular: 0987367668  <br> E-mail: veterinariamejia@hotmail.com
-        </p>
+        <v-sheet class="font-italic d-flex align-end text-caption" height="10%" >
+          <p>
+            <strong>Dirección:</strong>
+            AV. Ordoñez Lasso (Sayausi Centro), Cuenca, Ecuador. Teléfono: 402030 - Celular: 0987367668 <br> E-mail: veterinariamejia@hotmail.com
+          </p>
         </v-sheet>
       `,
     };
